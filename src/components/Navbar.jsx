@@ -4,7 +4,8 @@ import { HiShoppingBag } from "react-icons/hi";
 import { BsFillPencilFill } from "react-icons/bs";
 import User from "../components/User";
 import Button from "./ui/Button";
-import { useAuthContext } from "./context/AuthContext";
+import { useAuthContext } from "../context/AuthContext";
+import CartStatus from "./CartStatus";
 
 export default function Navbar() {
 	const { user, login, logout } = useAuthContext();
@@ -23,8 +24,8 @@ export default function Navbar() {
 					Products
 				</Link>
 				{user && (
-					<Link to="/carts" className="max-md:text-sm">
-						Carts
+					<Link to="/carts">
+						<CartStatus />
 					</Link>
 				)}
 				{user && user.isAdmin && (

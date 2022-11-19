@@ -8,7 +8,7 @@ export default function Products() {
 		isLoading,
 		error,
 		data: products,
-	} = useQuery(["products"], () => getProduct());
+	} = useQuery(["products"], () => getProduct(), { staleTime: 1000 * 60 });
 	return (
 		<>
 			{isLoading && <p>Loading...</p>}
