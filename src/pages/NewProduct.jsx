@@ -44,7 +44,7 @@ export default function NewProduct() {
 			<h2 className="text-2xl font-bold my-4 max-md:text-base max-md:my-3">
 				새로운 제품 등록
 			</h2>
-			{success && <p className="my-2">✅ {success}</p>}
+			{success && <p className="my-2 max-md:text-sm">✅ {success}</p>}
 			{file && (
 				<img
 					className="w-96 mx-auto mb-2 max-md:w-42"
