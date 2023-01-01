@@ -12,15 +12,13 @@ export default function Mycart() {
 		cartQuery: { isLoading, data: products },
 	} = useCarts();
 
-	{
-		isLoading && <p>Loading...</p>;
-	}
+	if (isLoading) return <p>Loading...</p>;
+
 	const hasProducts = products && products.length > 0;
 	const totalPrice =
 		products &&
 		products.reduce(
-			(prev, current) =>
-				prev + parseInt(current.price) * current.quantity,
+			(prev, current) => prev + parseInt(current.price) * current.quantity,
 			0
 		);
 
@@ -43,10 +41,7 @@ export default function Mycart() {
 						<BsFillPlusCircleFill className="shrink-0" />
 						<PriceCard text="배송액" price={SHIPPING} />
 						<FaEquals className="shrink-0" />
-						<PriceCard
-							text="총 가격"
-							price={totalPrice + SHIPPING}
-						/>
+						<PriceCard text="총 가격" price={totalPrice + SHIPPING} />
 					</div>
 					<Button text="주문하기" />
 				</>
